@@ -9,3 +9,8 @@ pollutantmean(
     pollutant = "nitrate",
     id = 1:5
 )
+
+complete(
+    directory = "documents/R-Coursera-Course/data/specdata/", 
+    id=c(2, 4, 8, 10, 12)
+)

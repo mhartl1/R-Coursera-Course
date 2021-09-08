@@ -30,3 +30,29 @@ pollutantmean <- function(directory, pollutant, id = 1:332){
     values <- values[!is.na(values)]
     mean(values)
 }
+
+##########
+# Part 2 #
+##########
+
+complete <- function(directory, id = 1:332){
+    nobs = vector("numeric", length=length(id))
+    for (i in 1:length(id)){
+        df <- load.file(directory, id[i])
+        nobs[i] <- sum(complete.cases(df[["suflate"]], df[["nitrate"]]))
+    }
+    data.frame(id = id, nobs = nobs)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
