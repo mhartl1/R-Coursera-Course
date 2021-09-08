@@ -1,3 +1,7 @@
+##########################
+# Data loading functions #
+##########################
+
 load.file <- function(directory, i) {
     file.int <- sprintf("%03i", i)
     file.name <- paste(directory, file.int, ".csv", sep="")
@@ -14,4 +18,15 @@ load.files <- function(directory, id){
         }
     }
     combined.data
+}
+
+##########
+# Part 1 #
+##########
+
+pollutantmean <- function(directory, pollutant, id = 1:332){
+    combined.data <- load.files(directory, id)
+    values <- combined.data[[pollutant]]
+    values <- values[!is.na(values)]
+    mean(values)
 }
