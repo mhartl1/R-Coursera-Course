@@ -44,7 +44,27 @@ complete <- function(directory, id = 1:332){
     data.frame(id = id, nobs = nobs)
 }
 
+##########
+# Part 3 #
+##########
 
+corr <- function(directory, threshold = 0){
+    #ids of the relevant locations
+    nobs.data <- complete(directory)
+    id <- nobs.data[nobs.data$nobs > threshold, "id"]
+    
+    #calculate correlations
+    cors <- vector("numeric", length=length(id))
+    for (n in 1:length(id)){
+        tmp.data <- load.file(directory, id[n])
+        cors[n] <- cor(
+            x = tmp.data$nitrate,
+            y = tmp.data$sulfate,
+            use = "complete.obs"
+            )
+    }
+    cors   
+}
 
 
 
