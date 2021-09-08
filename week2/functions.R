@@ -53,6 +53,9 @@ corr <- function(directory, threshold = 0){
     nobs.data <- complete(directory)
     id <- nobs.data[nobs.data$nobs > threshold, "id"]
     
+    #if nothing found return 0
+    if (length(id) == 0) return(c())
+    
     #calculate correlations
     cors <- vector("numeric", length=length(id))
     for (n in 1:length(id)){
