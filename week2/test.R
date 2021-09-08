@@ -17,8 +17,11 @@ complete(
 
 corr("specdata", 400)
 
+cc <- complete("specdata")
+cc <- cc[cc$nobs > 0, ]
+cc[which.min(cc$nobs), ]
 
-
+load.file("specdata", 137)
 
 
 
