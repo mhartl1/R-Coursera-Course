@@ -1,5 +1,34 @@
-source("documents/R-Coursera-Course/week2/functions.R")
+source("~/documents/R-Coursera-Course/week2/functions.R")
 
-load.file(directory = "documents/R-Coursera-Course/data/specdata/", i=2)
+head(load.file(directory = "specdata", i=2))
 
-head(load.files(directory = "documents/R-Coursera-Course/data/specdata/"), id=1:3)
+head(load.files(directory = "specdata", id=2:3))
+
+pollutantmean(
+    directory = "specdata",
+    pollutant = "nitrate",
+    id = 1:5
+)
+
+complete(
+    directory = "specdata", 
+    id=c(2, 4, 8, 10, 12)
+)
+
+corr("specdata", 400)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
